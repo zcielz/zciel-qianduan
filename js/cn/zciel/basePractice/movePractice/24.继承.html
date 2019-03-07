@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //* 多态:一个对象有不同的行为,或者是同一个行为针对不同的对象,产生不同的结果,要想有多态,就要先有继承,js中可以模拟多态,但是不会去使用,也不会模拟,
+    //js中通过原型来实现继承
+
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    Person.prototype.eat = function () {
+        console.log("ren ky chi");
+    };
+    Person.prototype.sleep = function () {
+        console.log("ren zai suj");
+    };
+    Person.prototype.play = function () {
+        console.log("shenhuo buyiyang");
+    };
+
+    function Student(score) {
+        this.score = score;
+    }
+
+    //改变学生的原型的指向即可 ==>  学生和人已经发生了关系
+    Student.prototype = new Person("xiaoming", 10, "nam");
+    Student.prototype.study = function () {
+        console.log("xuexi henlei");
+    };
+
+    //使用原型
+    var stu = new Student(100);
+    console.log(stu.name);
+    console.log(stu.age);
+    console.log(stu.sex);
+    stu.eat();
+    stu.play();
+    stu.sleep();
+
+    console.log("..ziji d");
+    stu.study();
+</script>
+</body>
+</html>

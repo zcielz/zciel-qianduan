@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //感觉可以多继承
+    //动物的构造方法
+    function Animal(name, weight) {
+        this.name = name;
+        this.weight = weight;
+    }
+
+    //动物的原型方法
+    Animal.prototype.eat = function () {
+        console.log("tiantianchi");
+    };
+
+    //狗的构造函数
+    function Dog(color) {
+        this.color = color;
+    }
+
+    Dog.prototype = new Animal("dog", "123kg");
+    Dog.prototype.bitePeson = function () {
+        console.log("yao");
+    };
+
+    //hashiqi
+    function ErHa(sex) {
+        this.sex = sex;
+    }
+
+    ErHa.prototype = new Dog("heibaise");
+    ErHa.prototype.playHost = function () {
+        console.log("..hahah ");
+    };
+    var erHa = new ErHa("man");
+    console.log(erHa.name, erHa.weight, erHa.color);
+    erHa.eat();
+    erHa.bitePeson();
+    erHa.playHost();
+</script>
+</body>
+</html>

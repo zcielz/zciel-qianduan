@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //方式一 实例对象
+    var per1 = {
+        name: "阿卡卡西",
+        age: 20,
+        sex: "man",
+        eat: function () {
+            console.log("eat something");
+        },
+        readBook: function () {
+            console.log("qin re tian");
+        }
+    };
+
+    console.log(per1.name);
+    console.log(per1.age);
+    console.log(per1.sex);
+
+    per1.eat();
+    per1.readBook();
+    //第一种直接实例化对象 不需要声明创建对象 直接使用
+
+    console.log("=============");
+
+    //方式二：调用系统的构造函数
+    var per2 = new Object();
+    per2.name = "大蛇丸";
+    per2.age = 30;
+    per2.sex = "man";
+    per2.eat = function () {
+        console.log("eat liulian");
+    };
+    per2.play = function () {
+        console.log("zhege xiaoshe zhenhaowan");
+    };
+
+    console.log(per2.name);
+    console.log(per2.age);
+    console.log(per2.sex);
+    per2.eat();
+    per2.play();
+
+    console.log("==========");
+
+    //方式三：自定义构造函数
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+        this.play = function () {
+            console.log("tiantian da youxi ");
+        };
+    }
+
+    var per = new Person("zz", 12, "woman");
+    console.log(per instanceof Person);
+    console.log(per.name);
+    console.log(per.age);
+    console.log(per.sex);
+    per.play();
+
+    //自定义构造函数创建对象做的时间
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
+        this.sayHi = function () {
+            console.log("您好");
+        };
+    }
+
+    //创建对象---->实例化一个对象,的同时对属性进行初始化
+    var per = new Person("小红", 20);
+
+    /*
+    *
+    * 1.开辟空间存储对象
+    * 2.把this设置为当前的对象
+    * 3.设置属性和方法的值
+    * 4.把this对象返回
+    *
+    *
+    *
+    * */
+
+</script>
+
+</body>
+</html>

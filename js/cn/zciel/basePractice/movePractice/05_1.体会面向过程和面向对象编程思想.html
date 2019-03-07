@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<input type="button" value="显示效果" id="btn"/>
+<div id="dv"></div>
+<script src="common.js"></script>
+<script>
+
+    //点击按钮，改变div的背景颜色
+    /* document.getElementById("btn").onclick = function () {
+         document.getElementById("dv").style.backgroundColor = "yellow";
+     };*/
+
+    function ChangeStyle(btnId, dvId, color) {
+        this.btnObj = document.getElementById(btnId); //按钮对象
+        this.dvObj = document.getElementById(dvId); //div对象
+        this.color = color; //颜色
+    }
+
+    //数据共享来改变背景颜色
+    ChangeStyle.prototype.init = function () {
+        console.log(this); //就是实例对象 -- 当前的对象
+        var that = this;
+        //点击按钮，改变div的背景颜色
+        this.btnObj.onclick = function () {
+            that.dvObj.style.backgroundColor = that.color;
+        }
+    }
+
+    //实例化对象
+    var cs = new ChangeStyle("btn", "dv", "yellow");
+    cs.init();
+
+    /* function Person() {
+         this.sayHi = function () {
+             console.log(this);
+         };
+     }
+
+     var p = new Person();
+     p.sayHi();*/
+</script>
+
+</body>
+</html>

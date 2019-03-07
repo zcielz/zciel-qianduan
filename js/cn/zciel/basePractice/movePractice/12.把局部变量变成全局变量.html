@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /* //函数的自调用 -- 自调用函数
+     //一次性的函数--声明的同时，直接调用
+     (function () {
+         console.log("hanshu");
+     })();
+
+     //页面加载后，这个自调用函数的代码就执行完了
+     (function (num) {
+         num = 10; //局部变量
+         console.log(num);
+     })(12);
+     //console.log(num);*/
+
+    (function (win) {
+        var num = 10; //局部变量
+        //js是一门动态类型的语言，对象没有属性，点了就没有了
+        win.num = num;
+    })(window);
+    console.log(num);
+
+    //如何把局部变量变成全局变量?
+    //把局部变量给window就可以了
+</script>
+
+</body>
+</html>

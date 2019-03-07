@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //什么样子的数据是需要写在原型中?
+    //需要共享的数据就可以写原型中
+    //原型的作用之一:数据共享
+
+    //属性需要共享,方法也需要共享
+    //不需要共享的数据写在构造函数中,需要共享的数据写在原型中
+    //构造函数
+    function Student(name, height, weight) {
+        this.name = name;
+        this.height = height;
+        this.weight = weight;
+    }
+
+    Student.prototype.height = "119";
+    Student.prototype.weight = "44kg";
+    Student.prototype.study = function () {
+        console.log("study..");
+    };
+    Student.prototype.eat = function () {
+        console.log("eat..");
+    };
+    //实例化对象，并初始化
+    var stu = new Student("xiaobai", 12, "13kg");
+    console.dir(Student);
+    console.dir(stu);
+
+    stu.eat();
+    stu.study();
+    console.log(stu.height);
+    console.log(stu.weight);
+    //原型的属性和构造方法的属性重合了 先走够着方法的
+
+</script>
+</body>
+</html>

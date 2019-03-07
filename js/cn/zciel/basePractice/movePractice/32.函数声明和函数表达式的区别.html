@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //函数声明
+    /*if (true) {
+        function f1() {
+            console.log("haha. woyoushuaile");
+        }
+    } else {
+        function f2() {
+            console.log("xiaoshu haoshuai");
+        }
+    }
+
+    f1();*/
+
+    //函数白倒是
+    var ff;
+    if (true) {
+        ff = function () {
+            console.log("haha,woyoushuale)");
+        };
+    } else {
+        ff = function () {
+            console.log("xiaohsu");
+        };
+    }
+    ff();
+
+    //函数声明如果放在if-else的语句中,在IE8的浏览器中会出现问题
+    //以后宁愿用函数表达式,都不用函数声明
+</script>
+</body>
+</html>

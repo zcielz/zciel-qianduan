@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    //原型实现继承
+    //借用构造函数实现继承
+    //组合继承：原型继承+借用构造函数继承
+    function Person(name, age, sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
+    }
+
+    Person.prototype.sayHi = function () {
+        console.log("jfds");
+    };
+
+    function Student(name, age, sex, score) {
+        //借用构造函数：属性值重复的问题
+        Person.call(this, name, age, sex);
+        this.score = score;
+    }
+
+    //改变原型的指向--继承
+    Student.prototype = new Person();//不传值
+    Student.prototype.eat = function () {
+        console.log("eat");
+    };
+    var stu = new Student("xiaohei", 20, "nan", "100fen");
+    console.log(stu.name, stu.age, stu.sex, stu.score);
+    stu.sayHi();
+    stu.eat();
+
+    var stu2 = new Student("xiaoheihei", 200, "man", "100fen");
+    console.log(stu2.name, stu2.age, stu2.sex, stu2.score);
+    stu2.sayHi();
+    stu2.eat();
+    console.log("====");
+    console.log(stu.name, stu.age, stu.sex, stu.score);
+
+    //属性和方法都被继承了
+</script>
+</body>
+</html>
