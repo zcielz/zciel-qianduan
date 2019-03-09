@@ -1,0 +1,1 @@
+console.log('foo 文件模块呗加载了');
