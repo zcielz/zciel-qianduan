@@ -16,6 +16,22 @@
 </div>
 
 <script>
-
+    const home = {
+        template: '<div>我是主页</div>'
+    };
+    const admin = {
+        template: '<div>我是管理页面</div>'
+    };
+    const routes = [
+        {path: '/home', component: home},
+        {path: '/admin', component: admin}
+    ]
+    var router = new VueRouter({
+        routes: routes
+    });
+    new Vue({
+        el: "#app",
+        router: router
+    });
 
 </script>
