@@ -28,4 +28,4 @@ var ret = users.myFind(function (item, index) {
     return item.id === 2
 })
 
-console.log(ret);s
+console.log(ret);
