@@ -4,3 +4,5 @@ console.log(pureObject); //[Object: null prototype] {}
 console.log(pureObject.constructor); //undefined
 console.log(pureObject.toString); //undefined
 console.log(pureObject.hasOwnProperty); //undefined
+
+//这种不常用
