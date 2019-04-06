@@ -27,4 +27,9 @@ var r = arr.filter(function (element, index, self) {
 
 // 利用filter，可以巧妙地去除Array的重复元素：
 var r, arr = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
-r = arr.filter(function (element))
+r = arr.filter(function (element, index, self) {
+    return self.indexOf(element) === index;
+});
+
+console.log(r.toString())
+// 去除重复元素依靠的是indexOf总是返回第一个元素的位置，后续的重复元素位置与indexOf返回的位置不相等，因此被filter滤掉了。
